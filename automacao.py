@@ -16,13 +16,16 @@ time.sleep(1) # Aguarda 1 segundo para o menu iniciar abrir
 pyautogui.write("Chrome") # Escreve "Google Chrome" para buscar o navegador
 time.sleep(1) # Aguarda 1 segundo para o resultado da busca aparecer
 pyautogui.press("enter") # Pressiona "Enter" para abrir o navegador
+time.sleep(2) # Aguarda 2 segundos para o navegador abrir
 pyautogui.write(link) # Escreve o link do site
 pyautogui.press("enter") # Pressiona para acessar o site
 time.sleep(3) # Aguarda 3 segundos para Troca de fornecedor 
 
 #Passo 2: Fazer login
-time.sleep(2) # Aguarda 2 segundos para garantir que o campo de email esteja visível
+time.sleep(2.0) # Aguarda 2 segundos para garantir que o campo de email esteja visível
 pyautogui.click(x=515, y=403) # Clica no campo de email
+pyautogui.click(x=515, y=403) # Clica no campo de email
+time.sleep(1) # Aguarda 0.5 segundos para garantir que o campo de email esteja ativo
 pyautogui.write("seuemail@gmail.com") # Escrever o email
 pyautogui.press("tab") # Pressiona "Tab" para ir para o campo de senha
 pyautogui.write("45667865424bl") # Escreve a senha
@@ -62,8 +65,6 @@ for linha in tabela.index: # Itera sobre cada linha da tabela de produtos
     pyautogui.press("tab") # Pressiona "Tab" para ir para o próximo campo
     #obs:   
     obs = str(tabela.loc[linha, "obs"]) # Obtém as observações do produto da tabela
-if obs != "nan": # <--- Só escreve se NÃO for vazio
-    pyautogui.write(obs)
     pyautogui.write(obs) # Escreve as observações do produto
 
 #Passo 5: Salvar as informações do produto
@@ -71,7 +72,7 @@ if obs != "nan": # <--- Só escreve se NÃO for vazio
     pyautogui.press("enter") # Pressiona "Enter" para salvar o produto
 
 #Passo 6: Scrool para o próximo produto seja cadastrado no topo da página
-    pyautogui.scroll(5000) # Rola a página para cima
+    pyautogui.scroll(50000) # Rola a página para cima
 
 #Passo 6: Repetir o processo para o próximo produto
 # so até acabar a lista de produtos
