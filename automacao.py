@@ -1,5 +1,5 @@
 # Automacao de Atendimento ao Cliente
-# Este script automatiza o registro de produtos
+#Este script automatiza o registro de produtos
 
 import pyautogui
 import time
@@ -11,7 +11,7 @@ pyautogui.write("Chrome") # Escreve "Google Chrome" para buscar o navegador
 pyautogui.press("enter") # Pressiona "Enter" para abrir o navegador
 pyautogui.write(link) # Escreve o link do site
 pyautogui.press("enter") # Pressiona "Enter" para acessar o site
-time.sleep(3) # Aguarda 3 segundos para o site carregar 
+time.sleep(3) # Aguarda 3 segundos para o site carregar
 
 
 #pyautogui.click-> Clica em um ponto específico da tela
