@@ -12,7 +12,9 @@ import pandas
 pyautogui.PAUSE = 1 # Define uma pausa de 0.5 segundos entre as ações para evitar erros
 link = "https://dlp.hashtagtreinamentos.com/python/intensivao/login"
 pyautogui.press("win") # Pressiona a tecla "Windows" para abrir o menu iniciar
+time.sleep(1) # Aguarda 1 segundo para o menu iniciar abrir
 pyautogui.write("Chrome") # Escreve "Google Chrome" para buscar o navegador
+time.sleep(1) # Aguarda 1 segundo para o resultado da busca aparecer
 pyautogui.press("enter") # Pressiona "Enter" para abrir o navegador
 pyautogui.write(link) # Escreve o link do site
 pyautogui.press("enter") # Pressiona para acessar o site
@@ -60,6 +62,8 @@ for linha in tabela.index: # Itera sobre cada linha da tabela de produtos
     pyautogui.press("tab") # Pressiona "Tab" para ir para o próximo campo
     #obs:   
     obs = str(tabela.loc[linha, "obs"]) # Obtém as observações do produto da tabela
+if obs != "nan": # <--- Só escreve se NÃO for vazio
+    pyautogui.write(obs)
     pyautogui.write(obs) # Escreve as observações do produto
 
 #Passo 5: Salvar as informações do produto
@@ -67,7 +71,7 @@ for linha in tabela.index: # Itera sobre cada linha da tabela de produtos
     pyautogui.press("enter") # Pressiona "Enter" para salvar o produto
 
 #Passo 6: Scrool para o próximo produto seja cadastrado no topo da página
-    pyautogui.scroll(1000) # Rola a página para cima
+    pyautogui.scroll(5000) # Rola a página para cima
 
 #Passo 6: Repetir o processo para o próximo produto
 # so até acabar a lista de produtos
