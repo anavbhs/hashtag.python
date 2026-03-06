@@ -65,7 +65,8 @@ for linha in tabela.index: # Itera sobre cada linha da tabela de produtos
     pyautogui.press("tab") # Pressiona "Tab" para ir para o próximo campo
     #obs:   
     obs = str(tabela.loc[linha, "obs"]) # Obtém as observações do produto da tabela
-    pyautogui.write(obs) # Escreve as observações do produto
+    if obs != "nan": # <--- Só escreve se NÃO for vazio
+        pyautogui.write(obs) # Escreve as observações do produto
 
 #Passo 5: Salvar as informações do produto
     pyautogui.press("tab") # Pressiona "Tab" para ir para o botão de salvar
